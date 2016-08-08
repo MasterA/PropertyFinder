@@ -146,7 +146,7 @@ _executeQuery(query){
     var search = location.coords.latitude + ',' + location.coords.longitude;
     this.setState({searchString: search});
     var query = urlForQueryAndPage('centre_point', search, 1);
-   }, 
+   },
    error => {
     this.setState({
      message: 'There was a problem with obtaning your location: ' + error
@@ -156,39 +156,40 @@ _executeQuery(query){
 
 
  render() {
-   var spinner = this.state.isLoading ? 
+   var spinner = this.state.isLoading ?
      ( <ActivityIndicator
          size='large'/> ) :
      ( <View/> )
    return (
      <View style={styles.container}>
        <Text style={styles.description}>
-         Search for houses to buy!
+         Search for houses to buy or rent!{"\n"}
+         Save a list and share it among your realitor or anyone!
        </Text>
        <Text style={styles.description}>
          Search by place-name, postcode or search near your location.
        </Text>
-				   <View style={styles.flowRight}>
-       <TextInput
+			 <View style={styles.flowRight}>
+        <TextInput
          style={styles.searchInput}
          value={this.state.searchString}
          onChange={this.onSearchTextChanged.bind(this)}
          placeholder='Search via name or postcode'/>
-					  <TouchableHighlight style={styles.button}
-					    underlayColor='#99d9f4'
-              onPress={this.onSearchPressed.bind(this)}>
-					   <Text style={styles.buttonText}>Go</Text>
-					  </TouchableHighlight>
-							</View>
-							<TouchableHighlight style={styles.button}
-							   underlayColor='#99d9f4'
-                 onPress={this.onLocationPressed.bind(this)}>
-							  <Text style={styles.buttonText}>Location</Text>
-							</TouchableHighlight>
-							<Image source={require('./Resources/house.png')} style={styles.image}/>
-       {spinner}
-       <Text style={this.state.description}>{this.state.message}</Text>
-	    </View>
+  		  <TouchableHighlight style={styles.button}
+  		    underlayColor='#99d9f4'
+          onPress={this.onSearchPressed.bind(this)}>
+  	      <Text style={styles.buttonText}>Go</Text>
+        </TouchableHighlight>
+			</View>
+			<TouchableHighlight style={styles.button}
+				underlayColor='#99d9f4'
+        onPress={this.onLocationPressed.bind(this)}>
+		    <Text style={styles.buttonText}>Location</Text>
+			</TouchableHighlight>
+			<Image source={require('./Resources/house.png')} style={styles.image}/>
+      {spinner}
+      <Text style={this.state.description}>{this.state.message}</Text>
+	  </View>
    );
  }
 }

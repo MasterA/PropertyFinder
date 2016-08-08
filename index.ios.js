@@ -15,14 +15,14 @@ TabBarIOS,
 
 var SearchPage = require('./SearchPage');
 var TabBarExample = require('./TabBarIOS');
+var Settings = require('./Settings');
+var SavedList = require('./SavedList');
 
 var styles = StyleSheet.create({
   container: {
     flex: 1
   }
 });
-
-
 
 class PropertyFinderApp extends Component {
 
@@ -43,11 +43,11 @@ class PropertyFinderApp extends Component {
 
   render() {
     return (
-     
      <TabBarIOS selectedTab={this.state.selectedTab}>
       <TabBarIOS.Item
-       title="SearchTab"
+       title="Property Finder"
        selected={this.state.selectedTab === 'SearchTab'}
+       systemIcon="search"
        onPress={() => {
           this.setState({
           selectedTab: 'SearchTab',
@@ -57,19 +57,36 @@ class PropertyFinderApp extends Component {
         style={styles.container}
         initialRoute={{
           title: 'Property Finder',
-          component: SearchPage,
+          component: SearchPage
        }}/>
-      </TabBarIOS.Item>
+       </TabBarIOS.Item>
+
+
+       <TabBarIOS.Item
+        title="SavedListTab"
+        selected={this.state.selectedTab === 'SavedListTab'}
+        systemIcon="favorites"
+        onPress={() => {
+           this.setState({
+           selectedTab: 'SavedListTab',
+         });
+        }}>
+        <SavedList/>
+       </TabBarIOS.Item>
+
+
       <TabBarIOS.Item
-       title="SearchTab2"
-       selected={this.state.selectedTab === 'SearchTab2'}
+       title="Settings"
+       selected={this.state.selectedTab === 'Settings'}
+       systemIcon="more"
        onPress={() => {
           this.setState({
-          selectedTab: 'SearchTab2',
-         })
+          selectedTab: 'Settings',
+        });
        }}>
-       {this._renderContent('#21551C', 'SearchTab2')}
+       <Settings/>
       </TabBarIOS.Item>
+
      </TabBarIOS>
     );
   }

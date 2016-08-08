@@ -6,11 +6,11 @@ var {
 
 var ReactNative = require('react-native');
 var {
-	StyleSheet,
+StyleSheet,
 	Text,
 	View,
 	Image,
- TouchableHighlight
+ 	TouchableHighlight
 } = ReactNative;
 
 var styles = StyleSheet.create({
@@ -52,12 +52,19 @@ var styles = StyleSheet.create({
   textAlign: 'center',
 	},
 	action: {
-	  backgroundColor: 'green',
+	  backgroundColor: '#55dc97',
 	  borderColor: 'transparent',
 	  borderWidth: 1,
 	  paddingTop: 14,
 	  paddingBottom: 16,
 	},
+	share: {
+		backgroundColor: '#559bdc',
+		borderColor: 'transparent',
+		borderWidth: 1,
+		paddingTop: 14,
+		paddingBottom: 16,
+	}
 });
 
 class PropertyView extends Component {
@@ -66,9 +73,9 @@ class PropertyView extends Component {
 		var stats = property.bedroom_number + ' bed ' + property.propery_type;
 		if (property.bathroom_number) {
 			stats += ', ' + property.bathroom_number + ' ' + (property.bathroom_number > 1
-				? 'bathrooms' : 'bathroom'); 
+				? 'bathrooms' : 'bathroom');
 		}
-	
+
 
 		var price = property.price_formatted.split(' ')[0];
 
@@ -80,14 +87,19 @@ class PropertyView extends Component {
 					<Text style={styles.title}>{property.title}</Text>
 				</View>
 				<Text style={styles.description}>{stats}</Text>
-				<Text style={styles.description}>{property.summary}</Text> 
-		  <View style={styles.action}>
-      <TouchableHighlight>
-        <Text style={styles.actionText}>Add</Text>
-      </TouchableHighlight>
-    </View>
-			</View>
-			);
+				<Text style={styles.description}>{property.summary}</Text>
+			  <View style={styles.action}>
+		      <TouchableHighlight>
+		        <Text style={styles.actionText}>Add</Text>
+		      </TouchableHighlight>
+				</View>
+				<View style={styles.share}>
+					<TouchableHighlight>
+						<Text style={styles.actionText}>Share</Text>
+					</TouchableHighlight>
+				</View>
+				</View>
+		);
 	}
 }
 

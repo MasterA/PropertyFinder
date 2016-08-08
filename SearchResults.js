@@ -22,7 +22,9 @@ var styles = StyleSheet.create({
 	thumb: {
 		width: 80,
 		height: 80,
-		marginRight: 10
+		marginRight: 10,
+		borderWidth: 3,
+		borderColor: '#000000'
 	},
 	textContainer: {
 		flex: 1
@@ -88,7 +90,7 @@ class SearchResults extends Component {
 
 		render(){
 			return(
-				<ListView 
+				<ListView
 						dataSource={this.state.dataSource}
 						renderRow={this.renderRow.bind(this)} />
 				);
@@ -96,7 +98,3 @@ class SearchResults extends Component {
 }
 
 module.exports = SearchResults;
-
-
-
-

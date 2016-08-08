@@ -26,7 +26,7 @@
           selectedTab: 'SearchTab',
          });
        }}>
-       <SearchPage/> 
+       <SearchPage/>
       </TabBarIOS.Item>
       <TabBarIOS.Item
        title="SearchTab2"
@@ -39,4 +39,21 @@
        {this._renderContent('#21551C', 'SearchTab2')}
       </TabBarIOS.Item>
      </TabBarIOS>
+
+
+
+
+
+
+           <View style={styles.flowRight}>
+            <TextInput
+             style={styles.searchInput}
+             placeholder='what is the max amount'/>
+            <TouchableHighlight style={styles.button}
+              underlayColor='#99d9f4'
+              >
+              <Text style={styles.buttonText}>Go</Text>
+            </TouchableHighlight>
+          </View>
+
 */

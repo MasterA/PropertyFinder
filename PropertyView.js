@@ -77,7 +77,7 @@ class PropertyView extends Component {
 		}
 
 
-		var price = property.price_formatted.split(' ')[0];
+		var price = property.price_formatted;
 
 		return(
 			<View style={styles.container}>
@@ -90,12 +90,12 @@ class PropertyView extends Component {
 				<Text style={styles.description}>{property.summary}</Text>
 			  <View style={styles.action}>
 		      <TouchableHighlight>
-		        <Text style={styles.actionText}>Add</Text>
+		        <Text style={styles.actionText}>Añedir a favoritos</Text>
 		      </TouchableHighlight>
 				</View>
 				<View style={styles.share}>
 					<TouchableHighlight>
-						<Text style={styles.actionText}>Share</Text>
+						<Text style={styles.actionText}>Compartir</Text>
 					</TouchableHighlight>
 				</View>
 				</View>

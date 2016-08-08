@@ -22,9 +22,7 @@ var styles = StyleSheet.create({
 	thumb: {
 		width: 80,
 		height: 80,
-		marginRight: 10,
-		borderWidth: 3,
-		borderColor: '#000000'
+		marginRight: 10
 	},
 	textContainer: {
 		flex: 1
@@ -61,14 +59,14 @@ class SearchResults extends Component {
 		var property = this.props.listings.filter(prop => prop.thumb_url === propertythumb_url)[0];
 
 		this.props.navigator.push({
-			title: "Property",
+			title: "Propiedad",
 			component: PropertyView,
 			passProps: {property: property}
 		});
 	}
 
 	renderRow(rowData, sectionID, rowID){
-		var price = rowData.price_formatted.split(' ')[0];
+	  var price = rowData.price_formatted;
 		return(
 			<TouchableHighlight
 				onPress={() => this.rowPressed(rowData.thumb_url)}

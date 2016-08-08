@@ -64,8 +64,8 @@ var styles = StyleSheet.create({
 		  color: '#48BBEC'
 		},
 		image: {
-	  	width: 217,
-	  	height: 138
+	  	width: 64,
+	  	height: 64
 		}
 });
 
@@ -74,7 +74,7 @@ var SearchResults = require('./SearchResults');
 
 function urlForQueryAndPage(key, value, pageNumber) {
  var data = {
-     country: 'uk',
+     country: 'mx',
      pretty: '1',
      encoding: 'json',
      listing_type: 'buy',
@@ -87,7 +87,7 @@ function urlForQueryAndPage(key, value, pageNumber) {
   .map(key => key + '=' + encodeURIComponent(data[key]))
   .join('&');
 
- return 'http://api.nestoria.co.uk/api?' + queryString;
+ return 'http://api.nestoria.mx/api?' + queryString;
 };
 
 
@@ -96,7 +96,7 @@ class SearchPage extends Component {
  constructor(props) {
    super(props);
    this.state = {
-     searchString: 'london',
+     searchString: 'Piedras Negras',
      isLoading: false,
      message: ''
    };
@@ -163,8 +163,9 @@ _executeQuery(query){
    return (
      <View style={styles.container}>
        <Text style={styles.description}>
-         Search for houses to buy or rent!{"\n"}
-         Save a list and share it among your realitor or anyone!
+         Busce casas de renta o venta!{"\n"}
+         Agrege sus varoritos en una lista para{"\n"}
+        compartir a amigos o manadar a su agente de bunas raizes.
        </Text>
        <Text style={styles.description}>
          Search by place-name, postcode or search near your location.
@@ -186,7 +187,7 @@ _executeQuery(query){
         onPress={this.onLocationPressed.bind(this)}>
 		    <Text style={styles.buttonText}>Location</Text>
 			</TouchableHighlight>
-			<Image source={require('./Resources/house.png')} style={styles.image}/>
+			<Image source={require('./Resources/placeholder64x64.png')} style={styles.image}/>
       {spinner}
       <Text style={this.state.description}>{this.state.message}</Text>
 	  </View>

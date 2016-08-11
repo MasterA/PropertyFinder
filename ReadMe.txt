@@ -10,3 +10,13 @@ Commits:
 
 Comming Soon:
   Mexico Branch: Working to make the application sutiable for launching in mexico. 
+  
+  
+Want this updates:
+*Click in details of property display a button to display it in a map.  (Backend Change)
+*Show all properties instead of a list but a map view where pins indicate the property, 
+  click on one of them and display the property. (Backend Change)
+*Share button to work. (Backend Change)
+*Add To List button to work. (Backend Change)
+*Make App Icon (UI Change)
+*Make Backgrounds of App (UI Change)

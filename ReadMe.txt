@@ -13,6 +13,7 @@ Comming Soon:
   
   
 Want this updates:
+*Make file to make the application to have multilanguages. (Backend Change).
 *Click in details of property display a button to display it in a map.  (Backend Change)
 *Show all properties instead of a list but a map view where pins indicate the property, 
   click on one of them and display the property. (Backend Change)

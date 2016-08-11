@@ -3,7 +3,7 @@ My plans are to launch in Mexico first then launch in different countries like E
 Then if the app is successful enough we can rewrite it to make it work with an api that works in the U.S. 
 
 
-Commits: 
+#Commits: 
   Init Files: The files are fundemental for the project to run
   Sam.2: Would be an update that implements a tab bar in the application
   

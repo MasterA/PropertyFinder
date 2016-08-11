@@ -29,18 +29,6 @@ Then if the app is successful enough we can rewrite it to make it work with an a
 
 ##Comming Soon:
   -Mexico Branch: Working to make the application sutiable for launching in mexico. <br>
-  
-  
-##Want this updates: 
-*Make file to make the application to have multilanguages. (Backend Change). <br>
-*Click in details of property display a button to display it in a map.  (Backend Change) <br>
-*Show all properties instead of a list but a map view where pins indicate the property,  <br>
-  click on one of them and display the property. (Backend Change) <br>
-*Share button to work. (Backend Change) <br>
-*Add To List button to work. (Backend Change) <br>
-*Make App Icon (UI Change) <br>
-*Make Backgrounds of App (UI Change) <br>
-
 
 ## Wiki (in the top nav bar) 
 Will give you documentation on how to document: <br>

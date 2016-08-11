@@ -5,7 +5,7 @@ Then if the app is successful enough we can rewrite it to make it work with an a
 
 
 #Commits: 
-  Init Files: The files are fundemental for the project to run
+  Init Files: The files are fundemental for the project to run <br>
   Sam.2: Would be an update that implements a tab bar in the application
   
 

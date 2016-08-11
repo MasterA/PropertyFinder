@@ -14,13 +14,13 @@ Then if the app is successful enough we can rewrite it to make it work with an a
  Comments concerning specific function etc in the code should commented. <br>
  -Standard to adding comments: <br>
  <i> Comment in React JSX example: </i> <br>
-    {/* <br>
+    {/ * <br>
       Multi <br>
       line <br>
       comment <br>
     */}  <br>
  <i> Comment format example: </i> <br>
-    {/* <br>
+    {/ * <br>
       Name: <br>
       Date&Time:<br>
       Description: <br>

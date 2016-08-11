@@ -13,13 +13,13 @@ Then if the app is successful enough we can rewrite it to make it work with an a
  File name, created by, change history github already does this. <br>
  Comments concerning specific function etc in the code should commented. <br>
  -Standard to adding comments: <br>
-  Comment in React JSX example: <br>
+ <i> Comment in React JSX example: </i> <br>
     {/* <br>
       Multi <br>
       line <br>
       comment <br>
     */}  <br>
-  Comment format example:
+ <i> Comment format example: </i> <br>
     {/* <br>
       Name: <br>
       Date&Time:<br>

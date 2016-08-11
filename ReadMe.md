@@ -30,8 +30,15 @@ Then if the app is successful enough we can rewrite it to make it work with an a
 ##Comming Soon:
   -Mexico Branch: Working to make the application sutiable for launching in mexico. <br>
 
-## Wiki (in the top nav bar) 
+## Wiki (in the top nav bar):
 Will give you documentation on how to document: <br>
 A meeting <br>
 Software to Use <br>
 etc... <br>
+
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |

@@ -8,14 +8,32 @@ Commits:
   Sam.2: Would be an update that implements a tab bar in the application
   
 
-**Things To Do**: <br>
--Standard to adding comments <br>
--add comment to existing files with standard comment format. <br>
+Comments: 
+ File name, created by, change history github already does this.
+ Comments concerning specific function etc in the code should commented. 
+ -Standard to adding comments:
+  Comment in React JSX example:
+    {/* 
+      Multi
+      line
+      comment
+    */}  
+  Comment format example:
+    {/* 
+      Name: 
+      Date&Time:
+      Description: 
+    */}  
+
+
+
+
+
 
 
 
 Comming Soon:
-  Mexico Branch: Working to make the application sutiable for launching in mexico. 
+  -Mexico Branch: Working to make the application sutiable for launching in mexico. 
   
   
 Want this updates:

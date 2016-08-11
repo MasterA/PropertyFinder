@@ -8,6 +8,12 @@ Commits:
   Sam.2: Would be an update that implements a tab bar in the application
   
 
+**Things To Do**: <br>
+-Standard to adding comments <br>
+-add comment to existing files with standard comment format. <br>
+
+
+
 Comming Soon:
   Mexico Branch: Working to make the application sutiable for launching in mexico. 
   

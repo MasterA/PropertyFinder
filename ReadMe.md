@@ -40,3 +40,10 @@ Then if the app is successful enough we can rewrite it to make it work with an a
 *Add To List button to work. (Backend Change) <br>
 *Make App Icon (UI Change) <br>
 *Make Backgrounds of App (UI Change) <br>
+
+
+###### Wiki (in the top nav bar) 
+Will give you documentation on how to document: <br>
+A meeting <br>
+Software to Use <br>
+etc... <br>

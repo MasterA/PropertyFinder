@@ -42,7 +42,7 @@ Then if the app is successful enough we can rewrite it to make it work with an a
 *Make Backgrounds of App (UI Change) <br>
 
 
-###### Wiki (in the top nav bar) 
+## Wiki (in the top nav bar) 
 Will give you documentation on how to document: <br>
 A meeting <br>
 Software to Use <br>

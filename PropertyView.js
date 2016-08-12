@@ -6,7 +6,8 @@ var {
 
 var ReactNative = require('react-native');
 var {
-StyleSheet,
+	ScrollView,
+        StyleSheet,
 	Text,
 	View,
 	Image,
@@ -80,7 +81,7 @@ class PropertyView extends Component {
 		var price = property.price_formatted;
 
 		return(
-			<View style={styles.container}>
+			<ScrollView style={styles.container}>
 				<Image style={styles.image} source={{uri: property.img_url}} />
 				<View style={styles.heading}>
 					<Text style={styles.price}>{price}</Text>
@@ -98,7 +99,7 @@ class PropertyView extends Component {
 						<Text style={styles.actionText}>Compartir</Text>
 					</TouchableHighlight>
 				</View>
-				</View>
+			</ScrollView>
 		);
 	}
 }

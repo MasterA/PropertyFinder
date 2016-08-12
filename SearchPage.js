@@ -18,39 +18,48 @@ var {
 } = ReactNative;
 
 var styles = StyleSheet.create({
-  description: {
-    marginBottom: 20,
-    fontSize: 18,
-    textAlign: 'center',
-    color: '#656565'
-  },
-  container: {
-    padding: 30,
-    marginTop: 65,
-    paddingTop: 65,
-    alignItems: 'center'
-  },
-		flowRight: {
-	  flexDirection: 'row',
-	  alignItems: 'center',
-	  alignSelf: 'stretch'
+
+    flexContainers: {
+      flexWrap: 'nowrap',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1
+    },
+    flexItemImage: {
+      alignItems: 'center',
+      paddingBottom: 10,
+      width:300,
+      height: 300,
+    },
+    description: {
+      marginBottom: 10,
+      fontSize: 12,
+      textAlign: 'center',
+      backgroundColor: 'rgba(0,0,0,0)',
+    },
+	 flowRight: {
+	   flexDirection: 'row',
+	   alignItems: 'center',
+	   alignSelf: 'stretch',
 		},
 		buttonText: {
 		  fontSize: 18,
 		  color: 'white',
-		  alignSelf: 'center'
+		  alignSelf: 'center',
+      //marginBottom: -40
 		},
 		button: {
 		  height: 36,
 		  flex: 1,
-		  flexDirection: 'row',
 		  backgroundColor: '#48BBEC',
 		  borderColor: '#48BBEC',
 		  borderWidth: 1,
 		  borderRadius: 8,
 		  marginBottom: 10,
+      flexDirection: 'row',
 		  alignSelf: 'stretch',
-		  justifyContent: 'center'
+		  justifyContent: 'center',
 		},
 		searchInput: {
 		  height: 36,
@@ -61,12 +70,17 @@ var styles = StyleSheet.create({
 		  borderWidth: 1,
 		  borderColor: '#48BBEC',
 		  borderRadius: 8,
-		  color: '#48BBEC'
+		  color: '#48BBEC',
+      marginBottom: -40
 		},
-		image: {
-	  	width: 217,
-	  	height: 138
-		}
+    backgroundImage:{
+      width: null,
+      height: null,
+      justifyContent: 'center',
+      alignItems: 'stretch',
+      flex: 1,
+    },
+
 });
 
 var SearchResults = require('./SearchResults');
@@ -74,7 +88,7 @@ var SearchResults = require('./SearchResults');
 
 function urlForQueryAndPage(key, value, pageNumber) {
  var data = {
-     country: 'uk',
+     country: 'mx',
      pretty: '1',
      encoding: 'json',
      listing_type: 'buy',
@@ -87,7 +101,7 @@ function urlForQueryAndPage(key, value, pageNumber) {
   .map(key => key + '=' + encodeURIComponent(data[key]))
   .join('&');
 
- return 'http://api.nestoria.co.uk/api?' + queryString;
+ return 'http://api.nestoria.mx/api?' + queryString;
 };
 
 
@@ -96,7 +110,7 @@ class SearchPage extends Component {
  constructor(props) {
    super(props);
    this.state = {
-     searchString: 'london',
+     searchString: 'Piedras Negras',
      isLoading: false,
      message: ''
    };
@@ -115,7 +129,7 @@ _handleResponse(response){
    passProps: {listings: response.listings}
   });
  } else {
-  this.setState({ message: 'Location not recognized; please try again.'});
+  this.setState({ message: 'Location not recognized, please try again.'});
  }
 }
 
@@ -161,35 +175,40 @@ _executeQuery(query){
          size='large'/> ) :
      ( <View/> )
    return (
-     <View style={styles.container}>
+
+     <View style={styles.flexContainers}>
+       <Image source={require('./Resources/IMG_2538.png')} style={styles.flexItemImage}/>
        <Text style={styles.description}>
-         Search for houses to buy or rent!{"\n"}
-         Save a list and share it among your realitor or anyone!
+        Type city, address, or zip code.
        </Text>
-       <Text style={styles.description}>
-         Search by place-name, postcode or search near your location.
-       </Text>
+
 			 <View style={styles.flowRight}>
-        <TextInput
-         style={styles.searchInput}
-         value={this.state.searchString}
-         onChange={this.onSearchTextChanged.bind(this)}
-         placeholder='Search via name or postcode'/>
-  		  <TouchableHighlight style={styles.button}
-  		    underlayColor='#99d9f4'
-          onPress={this.onSearchPressed.bind(this)}>
-  	      <Text style={styles.buttonText}>Go</Text>
+          <TextInput
+           style={styles.searchInput}
+           value={this.state.searchString}
+           onChange={this.onSearchTextChanged.bind(this)}
+           placeholder='Search via name or postcode'/>
+    		  <TouchableHighlight style={styles.button}
+    		    underlayColor='#99d9f4'
+            onPress={this.onSearchPressed.bind(this)}>
+    	    <Text style={styles.buttonText}>Go</Text>
+          </TouchableHighlight>
+      </View>
+
+			<View style={styles.flowRight}>
+        <TouchableHighlight style={styles.button}
+          underlayColor='#99d9f4'
+          onPress={this.onLocationPressed.bind(this)}>
+          <Text style={styles.buttonText}>Location</Text>
         </TouchableHighlight>
-			</View>
-			<TouchableHighlight style={styles.button}
-				underlayColor='#99d9f4'
-        onPress={this.onLocationPressed.bind(this)}>
-		    <Text style={styles.buttonText}>Location</Text>
-			</TouchableHighlight>
-			<Image source={require('./Resources/house.png')} style={styles.image}/>
+      </View>
+
+      <Text style={styles.description}>{this.state.message}</Text>
+
       {spinner}
-      <Text style={this.state.description}>{this.state.message}</Text>
+
 	  </View>
+
    );
  }
 }

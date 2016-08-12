@@ -22,9 +22,7 @@ var styles = StyleSheet.create({
 	thumb: {
 		width: 80,
 		height: 80,
-		marginRight: 10,
-		borderWidth: 3,
-		borderColor: '#000000'
+		marginRight: 10
 	},
 	textContainer: {
 		flex: 1
@@ -68,7 +66,7 @@ class SearchResults extends Component {
 	}
 
 	renderRow(rowData, sectionID, rowID){
-		var price = rowData.price_formatted.split(' ')[0];
+	  var price = rowData.price_formatted;
 		return(
 			<TouchableHighlight
 				onPress={() => this.rowPressed(rowData.thumb_url)}

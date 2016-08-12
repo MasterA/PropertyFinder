@@ -72,17 +72,35 @@ var styles = StyleSheet.create({
 class PropertyView extends Component {
 
 	constructor(props) {
-		super(props);
-		this.state = {
-			propertyToSave: 'ok'
-		}
+	 super(props);
+
+		// $FlowFixMe this seems to be a Flow bug, `saveResponse` is defined below
+	 this.saveResponse = this.saveResponse.bind(this);
+
+
+	 this.state = {
+		propertyToSave: 'ok',
+		promptValue: '',
+	 }
+
+
+	}
+
+	saveResponse(promptValue) {
+		this.setState({ promptValue: JSON.stringify(promptValue) });
+		console.log(this.state.promptValue);
 	}
 
 	onFavoritesSaved(event){
-			this.setState({propertyToSave: event.nativeEvent.message});
-			var title = this.props.property.title;
-			console.log(this.props.property);
-			AlertIOS.alert( 'you just saved: ' + title );
+		this.setState({propertyToSave: event.nativeEvent.message});
+		var title = this.props.property.title;
+		console.log(this.props.property);
+		AlertIOS.alert( 'you just saved: ' + title );
+	}
+
+	shareButton() {
+		console.log('Share Button')
+		AlertIOS.alert( 'Share Button Activated' );
 	}
 
 
@@ -107,18 +125,24 @@ class PropertyView extends Component {
 				<Text style={styles.description}>{property.summary}</Text>
 			  <View style={styles.action}>
 		      <TouchableHighlight
-					onPress={this.onFavoritesSaved.bind(this)}>
+					onPress={() => AlertIOS.prompt('You are about to save: '
+					+ this.props.property.title + ' to your list of favorites. '
+					, 'Optional: You can add a note about this house. e.g. why you like this house?'
+					, this.saveResponse, 'plain-text', '')}>
 		        <Text style={styles.actionText}>Add to favorites</Text>
 		      </TouchableHighlight>
 				</View>
 				<View style={styles.share}>
-					<TouchableHighlight>
+					<TouchableHighlight
+					onPress={this.shareButton}>
 						<Text style={styles.actionText}>Share</Text>
 					</TouchableHighlight>
 				</View>
 			</ScrollView>
 		);
 	}
+
+
 }
 
 

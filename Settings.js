@@ -4,6 +4,7 @@ AppRegistry,
 StyleSheet,
 Text,
 View,
+Image,
 NavigatorIOS
 } from 'react-native';
 
@@ -18,20 +19,22 @@ var styles = StyleSheet.create({
     padding: 30,
     marginTop: 65,
     alignItems: 'center'
-  }
+  },
+  backgroundImage:{
+    width: null,
+    height: null,
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    flex: 1,
+  //  resizeMode: Image.resizeMode.contain,
+  },
+
 });
 
 class Settings extends Component {
   render() {
       return (
-        <View style={styles.container}>
-          <Text style={styles.description}>
-            Settings
-          </Text>
-          <Text style={styles.description}>
-            Under Construction :/
-          </Text>
-        </View>
+        <Image source={require('./Resources/Credits.png')} style={styles.backgroundImage} />
       );
     }
 }

@@ -8,29 +8,22 @@ NavigatorIOS
 } from 'react-native';
 
 var styles = StyleSheet.create({
-  description: {
-    marginBottom: 20,
-    fontSize: 18,
-    textAlign: 'center',
-    color: '#656565'
-  },
-  container: {
-    padding: 30,
-    marginTop: 65,
-    alignItems: 'center'
-  }
 });
 
 class SavedList extends Component {
   render() {
       return (
-        <View style={styles.container}>
-          <Text style={styles.description}>
-            SAVED LIST!!!!!!!
-          </Text>
-          <Text style={styles.description}>
-            :]
-          </Text>
+        <View style={{flex: 1}}>
+          <View style={{flex: 1, backgroundColor: 'powderblue'}}>
+            <Text> Rentals </Text>
+          </View>
+          <View style={{flex: 2, backgroundColor: 'skyblue'}}>
+            <Text> Sales </Text>
+          </View>
+          <View style={{flex: 3, backgroundColor: 'steelblue'}} >
+            <Text> Mexico </Text>
+          </View>
+
         </View>
       );
     }

@@ -7,16 +7,17 @@ var {
 var ReactNative = require('react-native');
 var {
 	ScrollView,
-        StyleSheet,
+  StyleSheet,
 	Text,
 	View,
 	Image,
- 	TouchableHighlight
+ 	TouchableHighlight,
+	AlertIOS
 } = ReactNative;
 
 var styles = StyleSheet.create({
 	container: {
-		marginTop: 65
+		marginTop: 0
 	},
 	heading: {
 		backgroundColor: '#F8F8F8',
@@ -69,14 +70,29 @@ var styles = StyleSheet.create({
 });
 
 class PropertyView extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			propertyToSave: 'ok'
+		}
+	}
+
+	onFavoritesSaved(event){
+			this.setState({propertyToSave: event.nativeEvent.message});
+			var title = this.props.property.title;
+			console.log(this.props.property);
+			AlertIOS.alert( 'you just saved: ' + title );
+	}
+
+
 	render() {
 		var property = this.props.property;
-		var stats = property.bedroom_number + ' bed ' + property.propery_type;
+		var stats = property.bedroom_number + ' bed ' + property.property_type;
 		if (property.bathroom_number) {
 			stats += ', ' + property.bathroom_number + ' ' + (property.bathroom_number > 1
 				? 'bathrooms' : 'bathroom');
 		}
-
 
 		var price = property.price_formatted;
 
@@ -90,13 +106,14 @@ class PropertyView extends Component {
 				<Text style={styles.description}>{stats}</Text>
 				<Text style={styles.description}>{property.summary}</Text>
 			  <View style={styles.action}>
-		      <TouchableHighlight>
-		        <Text style={styles.actionText}>Añedir a favoritos</Text>
+		      <TouchableHighlight
+					onPress={this.onFavoritesSaved.bind(this)}>
+		        <Text style={styles.actionText}>Add to favorites</Text>
 		      </TouchableHighlight>
 				</View>
 				<View style={styles.share}>
 					<TouchableHighlight>
-						<Text style={styles.actionText}>Compartir</Text>
+						<Text style={styles.actionText}>Share</Text>
 					</TouchableHighlight>
 				</View>
 			</ScrollView>

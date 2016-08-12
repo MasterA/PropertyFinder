@@ -59,7 +59,7 @@ class SearchResults extends Component {
 		var property = this.props.listings.filter(prop => prop.thumb_url === propertythumb_url)[0];
 
 		this.props.navigator.push({
-			title: "Propiedad",
+			title: "Property",
 			component: PropertyView,
 			passProps: {property: property}
 		});

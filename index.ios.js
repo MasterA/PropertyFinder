@@ -61,7 +61,6 @@ class PropertyFinderApp extends Component {
        }}/>
        </TabBarIOS.Item>
 
-
        <TabBarIOS.Item
         title="SavedListTab"
         selected={this.state.selectedTab === 'SavedListTab'}

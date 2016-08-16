@@ -176,12 +176,13 @@ _executeQuery(query){
      ( <View/> )
    return (
 
-     <View style={styles.flexContainers}>
+      <View style={styles.flexContainers}>
        <Image source={require('./Resources/IMG_2538.png')} style={styles.flexItemImage}/>
        <Text style={styles.description}>
         Type city, address, or zip code.
        </Text>
 
+       {/* title that is above search bar */}
 			 <View style={styles.flowRight}>
           <TextInput
            style={styles.searchInput}
@@ -195,6 +196,7 @@ _executeQuery(query){
           </TouchableHighlight>
       </View>
 
+      {/* location button */}
 			<View style={styles.flowRight}>
         <TouchableHighlight style={styles.button}
           underlayColor='#99d9f4'
@@ -203,6 +205,7 @@ _executeQuery(query){
         </TouchableHighlight>
       </View>
 
+      {/* error message that displays to the user when input is wrong */}
       <Text style={styles.description}>{this.state.message}</Text>
 
       {spinner}

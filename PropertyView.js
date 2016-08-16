@@ -69,42 +69,41 @@ var styles = StyleSheet.create({
 	}
 });
 
+import Share, {ShareSheet, Button} from 'react-native-share';
+
+
 class PropertyView extends Component {
 
 	constructor(props) {
-	 super(props);
-
+   super(props);
 		// $FlowFixMe this seems to be a Flow bug, `saveResponse` is defined below
 	 this.saveResponse = this.saveResponse.bind(this);
-
-
 	 this.state = {
-		propertyToSave: 'ok',
-		promptValue: '',
+			propertyToSave: 'ok',
+			promptValue: '',
 	 }
-
-
 	}
 
+	// saves entered comment in prompt that appears in alert box when clicking 'Add to favorites'
 	saveResponse(promptValue) {
 		this.setState({ promptValue: JSON.stringify(promptValue) });
 		console.log(this.state.promptValue);
 	}
 
-	onFavoritesSaved(event){
-		this.setState({propertyToSave: event.nativeEvent.message});
-		var title = this.props.property.title;
-		console.log(this.props.property);
-		AlertIOS.alert( 'you just saved: ' + title );
-	}
-
-	shareButton() {
-		console.log('Share Button')
-		AlertIOS.alert( 'Share Button Activated' );
-	}
-
 
 	render() {
+
+		// for properties that are used in the share prompt when
+		// clicking the share button
+		let shareOptions = {
+			title: "React Native",
+			message: "Hola mundo",
+			url: "http://facebook.github.io/react-native/",
+			subject: "Share Link" //  for email
+		};
+
+
+		// property has all the properties of such property so its an object with such properties.
 		var property = this.props.property;
 		var stats = property.bedroom_number + ' bed ' + property.property_type;
 		if (property.bathroom_number) {
@@ -124,6 +123,7 @@ class PropertyView extends Component {
 				<Text style={styles.description}>{stats}</Text>
 				<Text style={styles.description}>{property.summary}</Text>
 			  <View style={styles.action}>
+				  {/* Add to favorites button */}
 		      <TouchableHighlight
 					onPress={() => AlertIOS.prompt('You are about to save: '
 					+ this.props.property.title + ' to your list of favorites. '
@@ -133,8 +133,9 @@ class PropertyView extends Component {
 		      </TouchableHighlight>
 				</View>
 				<View style={styles.share}>
+				 {/* share button */}
 					<TouchableHighlight
-					onPress={this.shareButton}>
+					onPress={()=>{Share.open(shareOptions);}}>
 						<Text style={styles.actionText}>Share</Text>
 					</TouchableHighlight>
 				</View>

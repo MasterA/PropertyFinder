@@ -17,6 +17,8 @@ var SearchPage = require('./SearchPage');
 var TabBarExample = require('./TabBarIOS');
 var Settings = require('./Settings');
 var SavedList = require('./SavedList');
+var Extra = require('./Extra');
+
 
 var styles = StyleSheet.create({
   container: {
@@ -43,6 +45,7 @@ class PropertyFinderApp extends Component {
 
   render() {
     return (
+
      <TabBarIOS selectedTab={this.state.selectedTab}>
       <TabBarIOS.Item
        title="Property Finder"
@@ -85,6 +88,20 @@ class PropertyFinderApp extends Component {
        }}>
        <Settings/>
       </TabBarIOS.Item>
+
+      <TabBarIOS.Item
+       title="Extra"
+       selected={this.state.selectedTab === 'Extra'}
+       systemIcon="bookmarks"
+       onPress={() => {
+          this.setState({
+          selectedTab: 'Extra',
+        });
+       }}>
+       <Settings/>
+      </TabBarIOS.Item>
+
+
 
      </TabBarIOS>
     );

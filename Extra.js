@@ -14,7 +14,7 @@ var styles = StyleSheet.create({
 const Realm = require('realm');
 
 
-class SavedList extends Component {
+class Extra extends Component {
   render() {
 
       let realm = new Realm({
@@ -29,19 +29,11 @@ class SavedList extends Component {
       return (
         <View style={{flex: 1}}>
           <View style={{flex: 1, backgroundColor: 'powderblue'}}>
-            <Text> Rentals </Text>
+            <Text> Im a container </Text>
           </View>
-          <View style={{flex: 2, backgroundColor: 'skyblue'}}>
-          <Text> Count of Investors in Bass & Austin: {realm.objects('Investors').length} </Text>
-
-          </View>
-          <View style={{flex: 3, backgroundColor: 'steelblue'}} >
-            <Text> Mexico </Text>
-          </View>
-
         </View>
       );
     }
 }
 
-module.exports = SavedList;
+module.exports = Extra;

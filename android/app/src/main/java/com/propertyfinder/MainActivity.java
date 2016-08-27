@@ -1,6 +1,7 @@
 package com.propertyfinder;
 
 import com.facebook.react.ReactActivity;
+import io.realm.react.RealmReactPackage;
 import cl.json.RNSharePackage;
 
 public class MainActivity extends ReactActivity {

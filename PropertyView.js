@@ -72,26 +72,59 @@ var styles = StyleSheet.create({
 import Share, {ShareSheet, Button} from 'react-native-share';
 
 
+{/* This is implementing Firebase Database
+import ReactNative from "react-native";
+import * as firebase from 'firebase';
+
+const firebaseConfig =  {
+	apiKey: "AIzaSyBGy05Mk1w9qf7T4-jaPIbIRB4kP4fdaPs",
+  authDomain: "propertyfinder-7928a.firebaseapp.com",
+  databaseURL: "https://propertyfinder-7928a.firebaseio.com",
+  storageBucket: "",
+};
+firebase.initalizeApp(firebaseConfig);
+*/}
 class PropertyView extends Component {
 
 	constructor(props) {
    super(props);
-		// $FlowFixMe this seems to be a Flow bug, `saveResponse` is defined below
+		/* Comment from React Native API on the page of AlertIO
+		'$FlowFixMe this seems to be a Flow bug, `saveResponse` is defined below'
+		My Comment: this.saveResponse will save the response of the user when he clicks
+		enter then save in promptValue then trigger saveResponse(promptValue) 'I think
+		thisi is how it works'*/
 	 this.saveResponse = this.saveResponse.bind(this);
 	 this.state = {
-			propertyToSave: 'ok',
 			promptValue: '',
 	 }
 	}
 
 	// saves entered comment in prompt that appears in alert box when clicking 'Add to favorites'
 	saveResponse(promptValue) {
+		console.log(this.props.property.lister_url);
+		/* this.setState will render the page again */
 		this.setState({ promptValue: JSON.stringify(promptValue) });
-		console.log(this.state.promptValue);
+		console.log(promptValue);
+
+		/* connecting to end point to save response */
+		fetch('http://propertyfinder.herokuapp.com/addfav', {
+		method: 'POST',
+		  headers: {
+		    'Accept': 'application/json',
+		    'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify({
+		    username: 'user100',
+		    propertyId: this.props.property.lister_url,
+				comment: promptValue
+		  })
+		})
+
 	}
 
 
 	render() {
+
 
 		// for properties that are used in the share prompt when
 		// clicking the share button
@@ -105,6 +138,8 @@ class PropertyView extends Component {
 
 		// property has all the properties of such property so its an object with such properties.
 		var property = this.props.property;
+
+
 		var stats = property.bedroom_number + ' bed ' + property.property_type;
 		if (property.bathroom_number) {
 			stats += ', ' + property.bathroom_number + ' ' + (property.bathroom_number > 1
@@ -112,6 +147,7 @@ class PropertyView extends Component {
 		}
 
 		var price = property.price_formatted;
+
 
 		return(
 			<ScrollView style={styles.container}>
@@ -123,12 +159,12 @@ class PropertyView extends Component {
 				<Text style={styles.description}>{stats}</Text>
 				<Text style={styles.description}>{property.summary}</Text>
 			  <View style={styles.action}>
-				  {/* Add to favorites button */}
+				  {/* add to favorites button */}
 		      <TouchableHighlight
-					onPress={() => AlertIOS.prompt('You are about to save: '
-					+ this.props.property.title + ' to your list of favorites. '
-					, 'Optional: You can add a note about this house. e.g. why you like this house?'
-					, this.saveResponse, 'plain-text', '')}>
+					onPress={() => AlertIOS.prompt('Now this property '
+					+ this.props.property.title + ' is in your list of favorites. '
+					, 'Optional: Add a note about this house. e.g. why you like this house?'
+					, this.saveResponse, 'plain-text', 'type in here :)')}>
 		        <Text style={styles.actionText}>Add to favorites</Text>
 		      </TouchableHighlight>
 				</View>
